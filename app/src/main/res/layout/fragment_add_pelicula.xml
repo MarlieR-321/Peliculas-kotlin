@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.add.AddPeliculaFragment">
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ingresar datos de Pelicula"
+            android:layout_margin="20dp"
+            android:textSize="20dp"
+            />
+
+        <EditText
+            android:id="@+id/etTitulo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:layout_marginHorizontal="60dp"
+            android:layout_marginTop="20dp"
+            android:hint="Titulo"/>
+
+        <EditText
+            android:id="@+id/etSinopsis"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:layout_marginHorizontal="60dp"
+            android:layout_marginTop="20dp"
+            android:lines="5"
+            android:hint="Sinopsis"
+            android:gravity="start|top"
+            android:inputType="textMultiLine" />
+
+        <EditText
+            android:id="@+id/etDuracion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:layout_marginHorizontal="60dp"
+            android:layout_marginTop="20dp"
+            android:hint="Duracion"/>
+
+        <EditText
+            android:id="@+id/etTipoMetraje"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:layout_marginHorizontal="60dp"
+            android:layout_marginTop="20dp"
+            android:hint="Tipo Metraje"/>
+
+
+        <Spinner
+            android:id="@+id/spClasificacion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="60dp"
+            android:layout_marginTop="20dp"
+            />
+
+        <Spinner
+            android:id="@+id/spNacionalidad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="60dp"
+            android:layout_marginTop="20dp"/>
+
+        <Button
+            android:id="@+id/btn_new"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ingresar"
+            android:layout_marginHorizontal="60dp"
+            android:layout_marginTop="40dp"
+            style="@style/btn_menu"/>
+    </LinearLayout>
+</ScrollView>

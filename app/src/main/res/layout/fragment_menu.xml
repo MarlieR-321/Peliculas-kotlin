@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.MenuFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btn_clasificacion"
+            style="@style/btn_menu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Clasificacion" />
+
+        <Button
+            android:id="@+id/btn_Genero"
+            style="@style/btn_menu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Genero" />
+
+        <Button
+            android:id="@+id/btn_Idioma"
+            style="@style/btn_menu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Idioma" />
+
+        <Button
+            android:id="@+id/btn_Nacionalidad"
+            style="@style/btn_menu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nacionalidad" />
+
+        <Button
+            android:id="@+id/btn_Pelicula"
+            style="@style/btn_menu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pelicula" />
+    </LinearLayout>
+
+</FrameLayout>

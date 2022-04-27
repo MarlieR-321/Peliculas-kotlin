@@ -75,10 +75,21 @@ class UpDelIdiomaFragment : Fragment() {
     }
 
     private fun guardarCambios() {
-        val genero = Idioma(binding.etId.text.toString().toInt(),binding.etNombre.text.toString(), true)
+        val name = binding.etNombre.text.toString()
 
-        viewModel.actualizarUsuario(genero)
-        Toast.makeText(requireContext(), "Registro guardado", Toast.LENGTH_LONG).show()
-        findNavController().navigate(R.id.nav_idioma)
+        if(name.isNotEmpty())
+        {
+            val genero = Idioma(binding.etId.text.toString().toInt(),name, true)
+
+            viewModel.actualizarUsuario(genero)
+            Toast.makeText(requireContext(), "Registro guardado", Toast.LENGTH_LONG).show()
+            findNavController().navigate(R.id.nav_idioma)
+        }
+        else
+        {
+            Toast.makeText(requireContext(), "Debe rellenar todos los campos", Toast.LENGTH_LONG).show()
+        }
+
+
     }
 }

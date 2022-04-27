@@ -74,11 +74,23 @@ class UpDelClasificacionFragment : Fragment() {
     }
 
     private fun guardarCambios() {
-        val cl = Clasificacion(binding.etId.text.toString().toInt(),binding.etAbreviacion.text.toString(),binding.etNombre.text.toString(), true)
+        val name = binding.etNombre.text.toString()
+        val short = binding.etAbreviacion.text.toString()
 
-        viewModel.actualizarUsuario(cl)
-        Toast.makeText(requireContext(), "Registro guardado", Toast.LENGTH_LONG).show()
-        findNavController().navigate(R.id.nav_clasif)
+        if (name.isNotEmpty() && short.isNotEmpty())
+        {
+            val cl = Clasificacion(binding.etId.text.toString().toInt(),short,name, true)
+
+            viewModel.actualizarUsuario(cl)
+            Toast.makeText(requireContext(), "Registro guardado", Toast.LENGTH_LONG).show()
+            findNavController().navigate(R.id.nav_clasif)
+        }
+        else
+        {
+            Toast.makeText(requireContext(), "Debe rellenar todos los campos", Toast.LENGTH_LONG).show()
+        }
+
+
     }
 
 }

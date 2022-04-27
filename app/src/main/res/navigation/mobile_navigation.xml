@@ -7,12 +7,12 @@
     <fragment
         android:id="@+id/nav_home"
         android:name="uca.ni.edu.peliculas.fragment.HomeFragment"
-        android:label="fragment_home"
+        android:label="@string/menu_home"
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/nav_clasif"
         android:name="uca.ni.edu.peliculas.fragment.list.ClasificacionFragment"
-        android:label="fragment_clasificacion"
+        android:label="@string/clasificacion"
         tools:layout="@layout/fragment_clasificacion" >
         <action
             android:id="@+id/clasificacion_to_addC"
@@ -24,7 +24,7 @@
     <fragment
         android:id="@+id/nav_idioma"
         android:name="uca.ni.edu.peliculas.fragment.list.IdiomaFragment"
-        android:label="fragment_idioma"
+        android:label="@string/idioma"
         tools:layout="@layout/fragment_idioma" >
         <action
             android:id="@+id/idioma_to_addI"
@@ -36,7 +36,7 @@
     <fragment
         android:id="@+id/nav_nacionalidad"
         android:name="uca.ni.edu.peliculas.fragment.list.NacionalidadFragment"
-        android:label="fragment_nacionalidad"
+        android:label="@string/nacionalidad"
         tools:layout="@layout/fragment_nacionalidad" >
         <action
             android:id="@+id/nacionalidad_to_addN"
@@ -48,7 +48,7 @@
     <fragment
         android:id="@+id/nav_genero"
         android:name="uca.ni.edu.peliculas.fragment.list.GeneroFragment"
-        android:label="fragment_genero"
+        android:label="@string/genero"
         tools:layout="@layout/fragment_genero" >
         <action
             android:id="@+id/genero_to_addG"
@@ -60,7 +60,7 @@
     <fragment
         android:id="@+id/nav_pelicula"
         android:name="uca.ni.edu.peliculas.fragment.list.PeliculaFragment"
-        android:label="fragment_pelicula"
+        android:label="@string/app_name"
         tools:layout="@layout/fragment_pelicula" >
         <action
             android:id="@+id/pelicula_toAddP"
@@ -69,7 +69,7 @@
     <fragment
         android:id="@+id/addClasificacionFragment2"
         android:name="uca.ni.edu.peliculas.fragment.add.AddClasificacionFragment"
-        android:label="fragment_add_clasificacion"
+        android:label="@string/clasificacion"
         tools:layout="@layout/fragment_add_clasificacion" >
         <action
             android:id="@+id/addC_to_clasificacion"
@@ -78,7 +78,7 @@
     <fragment
         android:id="@+id/upDelClasificacionFragment2"
         android:name="uca.ni.edu.peliculas.fragment.update_delete.UpDelClasificacionFragment"
-        android:label="fragment_up_del_clasificacion"
+        android:label="@string/clasificacion"
         tools:layout="@layout/fragment_up_del_clasificacion" >
         <action
             android:id="@+id/action_upDelClasificacionFragment_to_clasificacionFragment"
@@ -90,7 +90,7 @@
     <fragment
         android:id="@+id/addPeliculaFragment2"
         android:name="uca.ni.edu.peliculas.fragment.add.AddPeliculaFragment"
-        android:label="fragment_add_pelicula"
+        android:label="@string/app_name"
         tools:layout="@layout/fragment_add_pelicula" >
         <action
             android:id="@+id/addP_toPelicula"
@@ -99,7 +99,7 @@
     <fragment
         android:id="@+id/addNacionalidadFragment2"
         android:name="uca.ni.edu.peliculas.fragment.add.AddNacionalidadFragment"
-        android:label="fragment_add_nacionalidad"
+        android:label="@string/nacionalidad"
         tools:layout="@layout/fragment_add_nacionalidad" >
         <action
             android:id="@+id/addN_to_nacionalidad"
@@ -108,7 +108,7 @@
     <fragment
         android:id="@+id/upDelNacionalidadFragment2"
         android:name="uca.ni.edu.peliculas.fragment.update_delete.UpDelNacionalidadFragment"
-        android:label="fragment_up_del_nacionalidad"
+        android:label="@string/nacionalidad"
         tools:layout="@layout/fragment_up_del_nacionalidad" >
         <action
             android:id="@+id/updel_to_nacionalidad"
@@ -120,7 +120,7 @@
     <fragment
         android:id="@+id/addIdiomaFragment2"
         android:name="uca.ni.edu.peliculas.fragment.add.AddIdiomaFragment"
-        android:label="fragment_add_idioma"
+        android:label="@string/idioma"
         tools:layout="@layout/fragment_add_idioma" >
         <action
             android:id="@+id/addI_to_idioma"
@@ -129,7 +129,7 @@
     <fragment
         android:id="@+id/upDelIdiomaFragment2"
         android:name="uca.ni.edu.peliculas.fragment.update_delete.UpDelIdiomaFragment"
-        android:label="fragment_up_del_idioma"
+        android:label="@string/idioma"
         tools:layout="@layout/fragment_up_del_idioma" >
         <action
             android:id="@+id/updel_to_idioma"
@@ -141,7 +141,7 @@
     <fragment
         android:id="@+id/addGeneroFragment2"
         android:name="uca.ni.edu.peliculas.fragment.add.AddGeneroFragment"
-        android:label="fragment_add_genero"
+        android:label="@string/genero"
         tools:layout="@layout/fragment_add_genero" >
         <action
             android:id="@+id/addG_to_Genero"
@@ -150,7 +150,7 @@
     <fragment
         android:id="@+id/upDelGeneroFragment2"
         android:name="uca.ni.edu.peliculas.fragment.update_delete.UpDelGeneroFragment"
-        android:label="fragment_up_del_genero"
+        android:label="@string/genero"
         tools:layout="@layout/fragment_up_del_genero" >
         <action
             android:id="@+id/updel_to_genero"

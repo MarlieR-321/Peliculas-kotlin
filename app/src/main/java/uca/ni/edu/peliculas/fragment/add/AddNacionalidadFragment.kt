@@ -40,12 +40,23 @@ class AddNacionalidadFragment : Fragment() {
     }
 
     private fun guardar() {
-        val cl = Nacionalidad(0,binding.etNombre.text.toString(), true)
+        val name = binding.etNombre.text.toString()
 
-        viewModel.agregarUsuario(cl)
+        if(name.isNotEmpty())
+        {
+            val cl = Nacionalidad(0,binding.etNombre.text.toString(), true)
 
-        Toast.makeText(requireContext(), "Registro guardado", Toast.LENGTH_LONG).show()
-        findNavController().navigate(R.id.addN_to_nacionalidad)
+            viewModel.agregarUsuario(cl)
+
+            Toast.makeText(requireContext(), "Registro guardado", Toast.LENGTH_LONG).show()
+            findNavController().navigate(R.id.addN_to_nacionalidad)
+        }
+        else
+        {
+            Toast.makeText(requireContext(), "Debe rellenar todos los campos", Toast.LENGTH_LONG).show()
+        }
+
+
     }
 
 }

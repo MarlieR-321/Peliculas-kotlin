@@ -41,12 +41,24 @@ class AddIdiomaFragment : Fragment() {
     }
 
     private fun guardar() {
-        val cl = Idioma(0,binding.etNombre.text.toString(), true)
+        with(binding){
+            val name = etNombre.text.toString()
 
-        viewModel.agregarUsuario(cl)
+            if(name.isNotEmpty())
+            {
+                val cl = Idioma(0,name, true)
 
-        Toast.makeText(requireContext(), "Registro guardado", Toast.LENGTH_LONG).show()
-        findNavController().navigate(R.id.addI_to_idioma)
+                viewModel.agregarUsuario(cl)
+
+                Toast.makeText(requireContext(), "Registro guardado", Toast.LENGTH_LONG).show()
+                findNavController().navigate(R.id.nav_idioma)
+            }
+            else
+            {
+                Toast.makeText(requireContext(), "Debe rellenar todos los campos", Toast.LENGTH_LONG).show()
+            }
+        }
+
     }
 
 }

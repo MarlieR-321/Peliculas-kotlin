@@ -32,7 +32,7 @@ class AddClasificacionFragment : Fragment() {
     ): View? {
         binding = FragmentAddClasificacionBinding.inflate(inflater,container,false)
 
-        viewModel = ViewModelProvider(this).get(ClasificacionViewModels::class.java)
+        viewModel = ViewModelProvider(this)[ClasificacionViewModels::class.java]
 
         binding.btnNew.setOnClickListener {
             guardar()
@@ -42,12 +42,22 @@ class AddClasificacionFragment : Fragment() {
     }
 
     private fun guardar() {
-        val cl = Clasificacion(0,binding.etAbreviacion.text.toString(),binding.etNombre.text.toString(), true)
+        val name = binding.etNombre.text.toString()
+        val short = binding.etAbreviacion.text.toString()
 
-        viewModel.agregarUsuario(cl)
+        if (name.isNotEmpty() && short.isNotEmpty())
+        {
+            val cl = Clasificacion(0,short,name, true)
 
-        Toast.makeText(requireContext(), "Registro guardado", Toast.LENGTH_LONG).show()
-        findNavController().navigate(R.id.addC_to_clasificacion)
+            viewModel.agregarUsuario(cl)
+
+            Toast.makeText(requireContext(), "Registro guardado", Toast.LENGTH_LONG).show()
+            findNavController().navigate(R.id.addC_to_clasificacion)
+        }
+        else
+        {
+            Toast.makeText(requireContext(), "Debe rellenar todos los campos", Toast.LENGTH_LONG).show()
+        }
     }
 
 }

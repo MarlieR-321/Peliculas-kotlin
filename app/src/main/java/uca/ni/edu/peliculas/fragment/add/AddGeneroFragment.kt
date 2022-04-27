@@ -38,11 +38,21 @@ class AddGeneroFragment : Fragment() {
     }
 
     private fun guardar() {
-        val genero = Genero(0,binding.etNombre.text.toString(), true)
+        val name = binding.etNombre.text.toString()
 
-        viewModel.agregarUsuario(genero)
-        Toast.makeText(requireContext(), "Registro guardado",Toast.LENGTH_LONG).show()
-        findNavController().navigate(R.id.addG_to_Genero)
+        if(name.isNotEmpty())
+        {
+            val genero = Genero(0,name, true)
+
+            viewModel.agregarUsuario(genero)
+            Toast.makeText(requireContext(), "Registro guardado",Toast.LENGTH_LONG).show()
+            findNavController().navigate(R.id.addG_to_Genero)
+        }
+        else
+        {
+            Toast.makeText(requireContext(), "Debe rellenar todos los campos", Toast.LENGTH_LONG).show()
+        }
+
     }
 
 

@@ -16,7 +16,7 @@
     <string name="attachment_summary_on">Automatically download attachments for incoming emails
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
-    <string name="title_activity_system">System</string>
+    <string name="title_activity_system">Peliculas</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
@@ -27,4 +27,8 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
+    <string name="clasificacion">Clasificacion</string>
+    <string name="idioma">Idioma</string>
+    <string name="nacionalidad">Nacionalidad</string>
+    <string name="genero">Genero</string>
 </resources>

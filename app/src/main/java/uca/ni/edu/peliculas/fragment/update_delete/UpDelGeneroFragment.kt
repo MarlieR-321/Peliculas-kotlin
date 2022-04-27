@@ -74,11 +74,22 @@ class UpDelGeneroFragment : Fragment() {
     }
 
     private fun guardarCambios() {
-        val genero = Genero(binding.etId.text.toString().toInt(),binding.etNombre.text.toString(), true)
+        val name = binding.etNombre.text.toString()
 
-        viewModel.actualizarUsuario(genero)
-        Toast.makeText(requireContext(), "Registro guardado", Toast.LENGTH_LONG).show()
-        findNavController().navigate(R.id.nav_genero)
+        if(name.isNotEmpty())
+        {
+            val genero = Genero(binding.etId.text.toString().toInt(),name, true)
+
+            viewModel.actualizarUsuario(genero)
+            Toast.makeText(requireContext(), "Registro guardado", Toast.LENGTH_LONG).show()
+            findNavController().navigate(R.id.nav_genero)
+        }
+        else
+        {
+            Toast.makeText(requireContext(), "Debe rellenar todos los campos", Toast.LENGTH_LONG).show()
+        }
+
+
     }
 
 }

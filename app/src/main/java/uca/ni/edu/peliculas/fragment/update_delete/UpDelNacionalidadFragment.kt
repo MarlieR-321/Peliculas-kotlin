@@ -58,7 +58,7 @@ class UpDelNacionalidadFragment : Fragment() {
                 "Registro eliminado satisfactoriamente...",
                 Toast.LENGTH_LONG
             ).show()
-            findNavController().navigate(R.id.nacionalidadFragment)
+            findNavController().navigate(R.id.nav_nacionalidad)
         }
         alerta.setNegativeButton("No") { _, _ ->
             Toast.makeText(
@@ -80,6 +80,6 @@ class UpDelNacionalidadFragment : Fragment() {
 
         viewModel.actualizarUsuario(genero)
         Toast.makeText(requireContext(), "Registro guardado", Toast.LENGTH_LONG).show()
-        findNavController().navigate(R.id.clasificacionFragment)
+        findNavController().navigate(R.id.nav_nacionalidad)
     }
 }

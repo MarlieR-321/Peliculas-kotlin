@@ -56,7 +56,7 @@ class UpDelGeneroFragment : Fragment() {
                 "Registro eliminado satisfactoriamente...",
                 Toast.LENGTH_LONG
             ).show()
-            findNavController().navigate(R.id.generoFragment)
+            findNavController().navigate(R.id.nav_genero)
         }
         alerta.setNegativeButton("No") { _, _ ->
             Toast.makeText(
@@ -78,7 +78,7 @@ class UpDelGeneroFragment : Fragment() {
 
         viewModel.actualizarUsuario(genero)
         Toast.makeText(requireContext(), "Registro guardado", Toast.LENGTH_LONG).show()
-        findNavController().navigate(R.id.generoFragment)
+        findNavController().navigate(R.id.nav_genero)
     }
 
 }

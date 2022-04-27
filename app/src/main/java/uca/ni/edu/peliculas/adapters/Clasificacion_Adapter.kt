@@ -9,10 +9,8 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import uca.ni.edu.peliculas.R
 import uca.ni.edu.peliculas.bd.entidades.tables.Clasificacion
-import uca.ni.edu.peliculas.bd.entidades.tables.Genero
 import uca.ni.edu.peliculas.databinding.ItemListBinding
 import uca.ni.edu.peliculas.fragment.list.ClasificacionFragmentDirections
-import uca.ni.edu.peliculas.fragment.list.GeneroFragmentDirections
 
 class Clasificacion_Adapter:RecyclerView.Adapter<Clasificacion_Adapter.ClasificacionHolder>()  {
     var compra:List<Clasificacion> = emptyList()

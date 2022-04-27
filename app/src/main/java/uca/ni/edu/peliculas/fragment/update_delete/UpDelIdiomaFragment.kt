@@ -30,7 +30,7 @@ class UpDelIdiomaFragment : Fragment() {
     ): View? {
         binding= FragmentUpDelIdiomaBinding.inflate(layoutInflater)
 
-        viewModel = ViewModelProvider(this).get(IdiomaViewModels::class.java)
+        viewModel = ViewModelProvider(this)[IdiomaViewModels::class.java]
 
         with(binding){
             etId.setText(args.currentIdioma.id_Idioma.toString())
@@ -57,7 +57,7 @@ class UpDelIdiomaFragment : Fragment() {
                 "Registro eliminado satisfactoriamente...",
                 Toast.LENGTH_LONG
             ).show()
-            findNavController().navigate(R.id.idiomaFragment)
+            findNavController().navigate(R.id.nav_idioma)
         }
         alerta.setNegativeButton("No") { _, _ ->
             Toast.makeText(
@@ -79,6 +79,6 @@ class UpDelIdiomaFragment : Fragment() {
 
         viewModel.actualizarUsuario(genero)
         Toast.makeText(requireContext(), "Registro guardado", Toast.LENGTH_LONG).show()
-        findNavController().navigate(R.id.idiomaFragment)
+        findNavController().navigate(R.id.nav_idioma)
     }
 }

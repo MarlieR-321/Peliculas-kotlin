@@ -5,33 +5,54 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import uca.ni.edu.peliculas.R
 import uca.ni.edu.peliculas.bd.entidades.tables.Clasificacion
+import uca.ni.edu.peliculas.bd.entidades.tables.Genero
+import uca.ni.edu.peliculas.databinding.ItemListBinding
+import uca.ni.edu.peliculas.fragment.list.ClasificacionFragmentDirections
+import uca.ni.edu.peliculas.fragment.list.GeneroFragmentDirections
 
-class Clasificacion_Adapter(val compra: List<Clasificacion>):RecyclerView.Adapter<Clasificacion_Adapter.ClasificacionHolder>()  {
+class Clasificacion_Adapter:RecyclerView.Adapter<Clasificacion_Adapter.ClasificacionHolder>()  {
+    var compra:List<Clasificacion> = emptyList()
+
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
     ): ClasificacionHolder {
-        var view: View = LayoutInflater.from(parent.context).inflate(R.layout.item_list, null, false)
-        return ClasificacionHolder(view)
+        val binding = ItemListBinding.inflate(LayoutInflater.from(parent.context), parent,false)
+        return ClasificacionHolder(binding)
     }
 
     override fun onBindViewHolder(holder: ClasificacionHolder, position: Int) {
-        val current =compra[position]
-        holder.tvTitulo.text = current.abreviacion
-        holder.tvSubtitulo.text = current.nombre
-
-
+        holder.bind(
+            compra[position]
+        )
     }
 
     override fun getItemCount(): Int = compra.size
 
-    class ClasificacionHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val tvTitulo: TextView = itemView.findViewById(R.id.item_title)
-        val tvSubtitulo: TextView = itemView.findViewById(R.id.item_sub)
-        val ll:LinearLayout = itemView.findViewById(R.id.ll_item)
+    fun setData(cl: List<Clasificacion>) {
+        this.compra = cl
+        notifyDataSetChanged()
+    }
+
+    class ClasificacionHolder(val binding: ItemListBinding) : RecyclerView.ViewHolder(binding.root) {
+
+        fun bind(cl:Clasificacion){
+
+            with(binding){
+                itemTitle.text = cl.abreviacion
+                itemSub.text =cl.nombre
+
+                llItem.setOnClickListener {
+
+                    val action= ClasificacionFragmentDirections.clasificacionToUpdel(cl)
+                    it.findNavController().navigate(action)
+                }
+            }
+        }
     }
 
 }

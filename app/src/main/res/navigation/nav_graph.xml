@@ -12,6 +12,9 @@
         <action
             android:id="@+id/clasificacion_to_addC"
             app:destination="@id/addClasificacionFragment" />
+        <action
+            android:id="@+id/clasificacion_to_updel"
+            app:destination="@id/upDelClasificacionFragment" />
     </fragment>
 
     <fragment
@@ -138,5 +141,17 @@
         <argument
             android:name="currentGenero"
             app:argType="uca.ni.edu.peliculas.bd.entidades.tables.Genero" />
+    </fragment>
+    <fragment
+        android:id="@+id/upDelClasificacionFragment"
+        android:name="uca.ni.edu.peliculas.fragment.update_delete.UpDelClasificacionFragment"
+        android:label="fragment_up_del_clasificacion"
+        tools:layout="@layout/fragment_up_del_clasificacion" >
+        <action
+            android:id="@+id/action_upDelClasificacionFragment_to_clasificacionFragment"
+            app:destination="@id/clasificacionFragment" />
+        <argument
+            android:name="currentClasif"
+            app:argType="uca.ni.edu.peliculas.bd.entidades.tables.Clasificacion" />
     </fragment>
 </navigation>

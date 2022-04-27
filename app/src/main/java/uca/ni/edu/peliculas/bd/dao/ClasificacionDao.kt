@@ -1,5 +1,6 @@
 package uca.ni.edu.peliculas.bd.dao
 
+import androidx.lifecycle.LiveData
 import androidx.room.*
 import uca.ni.edu.peliculas.bd.entidades.tables.*
 
@@ -7,7 +8,7 @@ import uca.ni.edu.peliculas.bd.entidades.tables.*
 interface ClasificacionDao {
     //CLASIFICACION
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertClasificacion(usuario: Clasificacion)
+    suspend fun insert(usuario: Clasificacion)
 
     @Query("Select * from Clasificacion")
     suspend fun getAllClasificacion(): List<Clasificacion>
@@ -16,10 +17,12 @@ interface ClasificacionDao {
     suspend fun getByIdClasificacion(id: Int): Clasificacion
 
     @Update
-    fun updateClasificacion(usuario: Clasificacion)
+    fun update(usuario: Clasificacion)
 
     @Delete
-    fun deleteClasificacion(usuario: Clasificacion)
+    fun delete(usuario: Clasificacion)
 
+    @Query("SELECT * FROM Clasificacion")
+    fun getAllRealData(): LiveData<List<Clasificacion>>
 
 }

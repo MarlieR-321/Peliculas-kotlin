@@ -55,12 +55,4 @@ class GeneroFragment : Fragment() {
         }
     }
 
-    private fun views(){
-        with(binding){
-            btnAdd.setOnClickListener {
-                it.findNavController().navigate(R.id.genero_to_addG)
-            }
-        }
-    }
-
 }

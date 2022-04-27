@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import uca.ni.edu.peliculas.R
-import uca.ni.edu.peliculas.entidades.tables.Idioma
+import uca.ni.edu.peliculas.bd.entidades.tables.Idioma
 
 class Idioma_Adapter(val compra:List<Idioma>):RecyclerView.Adapter<Idioma_Adapter.IdiomaHolder>()  {
     override fun onCreateViewHolder(

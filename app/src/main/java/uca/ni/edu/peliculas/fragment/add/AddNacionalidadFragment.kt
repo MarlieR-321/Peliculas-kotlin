@@ -10,10 +10,10 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import uca.ni.edu.peliculas.R
-import uca.ni.edu.peliculas.dao.PeliculaDao
+import uca.ni.edu.peliculas.bd.dao.PeliculaDao
 import uca.ni.edu.peliculas.databinding.FragmentAddNacionalidadBinding
-import uca.ni.edu.peliculas.dbPeliculas
-import uca.ni.edu.peliculas.entidades.tables.Nacionalidad
+import uca.ni.edu.peliculas.bd.dao.dbPeliculas
+import uca.ni.edu.peliculas.bd.entidades.tables.Nacionalidad
 
 class AddNacionalidadFragment : Fragment() {
 

@@ -4,8 +4,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import uca.ni.edu.peliculas.databinding.ItemPeliculaBinding
-import uca.ni.edu.peliculas.entidades.tables.Pelicula
-import uca.ni.edu.peliculas.entidades.view.vw_Pelicula
+import uca.ni.edu.peliculas.bd.entidades.tables.Pelicula
+import uca.ni.edu.peliculas.bd.entidades.view.vw_Pelicula
 
 class Pelicula_Adapter(val lista:List<vw_Pelicula>):RecyclerView.Adapter<Pelicula_Adapter.PeliculaHolder>()  {
     override fun onCreateViewHolder(

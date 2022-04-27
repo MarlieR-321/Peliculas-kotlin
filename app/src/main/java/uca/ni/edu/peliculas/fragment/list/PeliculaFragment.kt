@@ -12,9 +12,9 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import uca.ni.edu.peliculas.R
 import uca.ni.edu.peliculas.adapters.Pelicula_Adapter
-import uca.ni.edu.peliculas.dao.PeliculaDao
+import uca.ni.edu.peliculas.bd.dao.PeliculaDao
 import uca.ni.edu.peliculas.databinding.FragmentPeliculaBinding
-import uca.ni.edu.peliculas.dbPeliculas
+import uca.ni.edu.peliculas.bd.dao.dbPeliculas
 
 
 class PeliculaFragment : Fragment() {

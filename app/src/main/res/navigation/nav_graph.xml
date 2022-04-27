@@ -54,6 +54,9 @@
         <action
             android:id="@+id/genero_to_addG"
             app:destination="@id/addGeneroFragment" />
+        <action
+            android:id="@+id/genero_to_updel"
+            app:destination="@id/upDelGeneroFragment" />
     </fragment>
 
     <fragment
@@ -123,5 +126,17 @@
         <action
             android:id="@+id/addP_toPelicula"
             app:destination="@id/peliculaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/upDelGeneroFragment"
+        android:name="uca.ni.edu.peliculas.fragment.update_delete.UpDelGeneroFragment"
+        android:label="fragment_up_del_genero"
+        tools:layout="@layout/fragment_up_del_genero" >
+        <action
+            android:id="@+id/updel_to_genero"
+            app:destination="@id/generoFragment" />
+        <argument
+            android:name="currentGenero"
+            app:argType="uca.ni.edu.peliculas.bd.entidades.tables.Genero" />
     </fragment>
 </navigation>

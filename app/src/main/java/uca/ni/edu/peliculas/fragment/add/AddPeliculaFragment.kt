@@ -8,18 +8,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import androidx.navigation.Navigation
-import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import uca.ni.edu.peliculas.R
-import uca.ni.edu.peliculas.adapters.Genero_Adapter
-import uca.ni.edu.peliculas.dao.PeliculaDao
+import uca.ni.edu.peliculas.bd.dao.PeliculaDao
 import uca.ni.edu.peliculas.databinding.FragmentAddPeliculaBinding
-import uca.ni.edu.peliculas.dbPeliculas
-import uca.ni.edu.peliculas.entidades.tables.Clasificacion
-import uca.ni.edu.peliculas.entidades.tables.Nacionalidad
-import uca.ni.edu.peliculas.entidades.tables.Pelicula
+import uca.ni.edu.peliculas.bd.dao.dbPeliculas
+import uca.ni.edu.peliculas.bd.entidades.tables.Pelicula
 
 
 class AddPeliculaFragment : Fragment() {

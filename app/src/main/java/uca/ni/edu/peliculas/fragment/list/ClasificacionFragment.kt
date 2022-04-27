@@ -6,16 +6,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import uca.ni.edu.peliculas.R
 import uca.ni.edu.peliculas.adapters.Clasificacion_Adapter
-import uca.ni.edu.peliculas.dao.PeliculaDao
+import uca.ni.edu.peliculas.bd.dao.PeliculaDao
 import uca.ni.edu.peliculas.databinding.FragmentClasificacionBinding
-import uca.ni.edu.peliculas.dbPeliculas
+import uca.ni.edu.peliculas.bd.dao.dbPeliculas
 
 
 class ClasificacionFragment : Fragment() {
@@ -35,7 +34,7 @@ class ClasificacionFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val navController = Navigation.findNavController(view)
-        val db:dbPeliculas = dbPeliculas.getInstace(this.requireContext().applicationContext)
+        val db: dbPeliculas = dbPeliculas.getInstace(this.requireContext().applicationContext)
         val dao: PeliculaDao = db.peliculaDao()
 
         CoroutineScope(Dispatchers.Main).launch {

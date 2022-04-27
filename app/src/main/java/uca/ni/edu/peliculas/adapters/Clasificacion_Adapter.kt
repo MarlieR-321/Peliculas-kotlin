@@ -7,7 +7,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import uca.ni.edu.peliculas.R
-import uca.ni.edu.peliculas.entidades.tables.Clasificacion
+import uca.ni.edu.peliculas.bd.entidades.tables.Clasificacion
 
 class Clasificacion_Adapter(val compra: List<Clasificacion>):RecyclerView.Adapter<Clasificacion_Adapter.ClasificacionHolder>()  {
     override fun onCreateViewHolder(

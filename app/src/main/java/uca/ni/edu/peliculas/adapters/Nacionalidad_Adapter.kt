@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import uca.ni.edu.peliculas.R
-import uca.ni.edu.peliculas.entidades.tables.Nacionalidad
+import uca.ni.edu.peliculas.bd.entidades.tables.Nacionalidad
 
 class Nacionalidad_Adapter(val compra:List<Nacionalidad>):RecyclerView.Adapter<Nacionalidad_Adapter.NacionalidadHolder>()  {
     override fun onCreateViewHolder(

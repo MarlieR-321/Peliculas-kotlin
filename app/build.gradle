@@ -1,8 +1,10 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-android'
+    id 'kotlin-android-extensions'
     id 'kotlin-kapt'
-    id 'androidx.navigation.safeargs'
+    id 'androidx.navigation.safeargs.kotlin'
 }
 
 android {
@@ -33,7 +35,7 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
 }
 
@@ -48,6 +50,9 @@ dependencies {
         implementation "androidx.room:room-ktx:$room_version"
         implementation 'androidx.room:room-common:2.4.2'
 
+    // Material Design
+        implementation 'com.google.android.material:material:1.5.0'
+
     //ANDROID CORE
         implementation 'androidx.core:core-ktx:1.7.0'
         implementation 'androidx.appcompat:appcompat:1.4.1'
@@ -58,8 +63,8 @@ dependencies {
         def nav_version = "2.4.2"
 
         // Java language implementation
-        implementation "androidx.navigation:navigation-fragment:$nav_version"
-        implementation "androidx.navigation:navigation-ui:$nav_version"
+        implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+        implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
 
         // Kotlin
         implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
@@ -76,7 +81,7 @@ dependencies {
 
 
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'androidx.preference:preference:1.1.1'
+    implementation 'androidx.preference:preference-ktx:1.1.1'
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

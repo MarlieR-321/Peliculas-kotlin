@@ -19,7 +19,7 @@ interface MainDataBaseProvider{
 
 @Database(entities = [Clasificacion::class , Nacionalidad::class, Idioma::class, Genero::class, Pelicula::class, PeliculaGenero::class, PeliculaIdioma::class],
     views = [vw_Pelicula::class],
-    version = 6
+    version = 7
 )
 abstract class dbPeliculas: RoomDatabase(), MainDataBaseProvider {
     abstract override fun peliculaDao(): PeliculaDao

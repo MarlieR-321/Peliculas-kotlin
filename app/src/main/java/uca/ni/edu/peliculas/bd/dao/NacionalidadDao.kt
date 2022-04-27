@@ -1,5 +1,6 @@
 package uca.ni.edu.peliculas.bd.dao
 
+import androidx.lifecycle.LiveData
 import androidx.room.*
 import uca.ni.edu.peliculas.bd.entidades.tables.*
 import uca.ni.edu.peliculas.bd.entidades.tables.relations.genero.PeliculaGenero
@@ -10,7 +11,10 @@ interface NacionalidadDao {
 
     //NACIONALIDAD
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertNacionalidad(usuario: Nacionalidad)
+    suspend fun insert(usuario: Nacionalidad)
+
+    @Query("SELECT * FROM Nacionalidad")
+    fun getAllRealData(): LiveData<List<Nacionalidad>>
 
     @Query("Select * from Nacionalidad")
     suspend fun getAllNacionalidad(): List<Nacionalidad>
@@ -19,10 +23,10 @@ interface NacionalidadDao {
     suspend fun getByIdNacionalidad(id: Int): Nacionalidad
 
     @Update
-    fun updateNacionalidad(usuario: Nacionalidad)
+    fun update(usuario: Nacionalidad)
 
     @Delete
-    fun deleteNacionalidad(usuario: Nacionalidad)
+    fun delete(usuario: Nacionalidad)
 
 
 }

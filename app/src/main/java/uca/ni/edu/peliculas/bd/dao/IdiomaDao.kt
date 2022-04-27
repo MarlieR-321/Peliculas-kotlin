@@ -1,5 +1,6 @@
 package uca.ni.edu.peliculas.bd.dao
 
+import androidx.lifecycle.LiveData
 import androidx.room.*
 import uca.ni.edu.peliculas.bd.entidades.tables.*
 import uca.ni.edu.peliculas.bd.entidades.tables.relations.genero.PeliculaGenero
@@ -10,7 +11,10 @@ interface IdiomaDao {
 
     //IDIOMA
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertIdioma(usuario: Idioma)
+    suspend fun insert(usuario: Idioma)
+
+    @Query("SELECT * FROM Idioma")
+    fun getAllRealData(): LiveData<List<Idioma>>
 
     @Query("Select * from Idioma")
     suspend fun getAllIdioma(): List<Idioma>
@@ -19,9 +23,9 @@ interface IdiomaDao {
     suspend fun getByIdIdioma(id: Int): Idioma
 
     @Update
-    fun updateIdioma(usuario: Idioma)
+    fun update(usuario: Idioma)
 
     @Delete
-    fun deleteIdioma(usuario: Idioma)
+    fun delete(usuario: Idioma)
 
 }

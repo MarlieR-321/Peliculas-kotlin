@@ -47,6 +47,9 @@
         <action
             android:id="@+id/nacionalidad_to_addN"
             app:destination="@id/addNacionalidadFragment" />
+        <action
+            android:id="@+id/nacionalidad_to_updel"
+            app:destination="@id/upDelNacionalidadFragment" />
     </fragment>
 
     <fragment
@@ -70,6 +73,9 @@
         <action
             android:id="@+id/idioma_to_addI"
             app:destination="@id/addIdiomaFragment" />
+        <action
+            android:id="@+id/idioma_to_updel"
+            app:destination="@id/upDelIdiomaFragment" />
     </fragment>
 
     <fragment
@@ -153,5 +159,29 @@
         <argument
             android:name="currentClasif"
             app:argType="uca.ni.edu.peliculas.bd.entidades.tables.Clasificacion" />
+    </fragment>
+    <fragment
+        android:id="@+id/upDelIdiomaFragment"
+        android:name="uca.ni.edu.peliculas.fragment.update_delete.UpDelIdiomaFragment"
+        android:label="fragment_up_del_idioma"
+        tools:layout="@layout/fragment_up_del_idioma" >
+        <action
+            android:id="@+id/updel_to_idioma"
+            app:destination="@id/idiomaFragment" />
+        <argument
+            android:name="currentIdioma"
+            app:argType="uca.ni.edu.peliculas.bd.entidades.tables.Idioma" />
+    </fragment>
+    <fragment
+        android:id="@+id/upDelNacionalidadFragment"
+        android:name="uca.ni.edu.peliculas.fragment.update_delete.UpDelNacionalidadFragment"
+        android:label="fragment_up_del_nacionalidad"
+        tools:layout="@layout/fragment_up_del_nacionalidad" >
+        <action
+            android:id="@+id/updel_to_nacionalidad"
+            app:destination="@id/nacionalidadFragment" />
+        <argument
+            android:name="currentNacionalidad"
+            app:argType="uca.ni.edu.peliculas.bd.entidades.tables.Nacionalidad" />
     </fragment>
 </navigation>

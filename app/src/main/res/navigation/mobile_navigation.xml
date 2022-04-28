@@ -65,6 +65,9 @@
         <action
             android:id="@+id/pelicula_toAddP"
             app:destination="@id/addPeliculaFragment2" />
+        <action
+            android:id="@+id/pelicula_to_updel"
+            app:destination="@id/upDelPeliculaFragment" />
     </fragment>
     <fragment
         android:id="@+id/addClasificacionFragment2"
@@ -158,5 +161,17 @@
         <argument
             android:name="currentGenero"
             app:argType="uca.ni.edu.peliculas.bd.entidades.tables.Genero" />
+    </fragment>
+    <fragment
+        android:id="@+id/upDelPeliculaFragment"
+        android:name="uca.ni.edu.peliculas.fragment.update_delete.UpDelPeliculaFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/fragment_up_del_pelicula" >
+        <action
+            android:id="@+id/updel_to_pelicula"
+            app:destination="@id/nav_pelicula" />
+        <argument
+            android:name="currentPelicula"
+            app:argType="uca.ni.edu.peliculas.bd.entidades.view.vw_Pelicula" />
     </fragment>
 </navigation>

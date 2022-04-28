@@ -5,26 +5,45 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import uca.ni.edu.peliculas.R
+import uca.ni.edu.peliculas.adapters.Nacionalidad_Adapter
 import uca.ni.edu.peliculas.adapters.Pelicula_Adapter
 import uca.ni.edu.peliculas.bd.dao.PeliculaDao
 import uca.ni.edu.peliculas.databinding.FragmentPeliculaBinding
 import uca.ni.edu.peliculas.bd.dao.dbPeliculas
+import uca.ni.edu.peliculas.bd.viewmodels.NacionalidadViewModels
+import uca.ni.edu.peliculas.bd.viewmodels.PeliculaViewModels
 
 
 class PeliculaFragment : Fragment() {
 
     lateinit var binding: FragmentPeliculaBinding
+    private lateinit var viewModel : PeliculaViewModels
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         binding = FragmentPeliculaBinding.inflate(inflater,container, false)
+        val adapter = Pelicula_Adapter()
+        val recyclerView = binding.rvClasificacion
+
+        recyclerView.adapter = adapter
+        recyclerView.layoutManager = LinearLayoutManager(context)
+
+        viewModel = ViewModelProvider(this)[PeliculaViewModels::class.java]
+        viewModel.listaPeliculas.observe(viewLifecycleOwner, Observer {
+                nac->adapter.setDataPelicula(nac)
+        })
+
         return binding.root
     }
 
@@ -32,15 +51,6 @@ class PeliculaFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val navController = Navigation.findNavController(view)
-        val db: dbPeliculas = dbPeliculas.getInstace(this.requireContext().applicationContext)
-        val dao: PeliculaDao = db.peliculaDao()
-
-        CoroutineScope(Dispatchers.Main).launch {
-            var list = dao.getAllVw_Pelicula()
-            val adapter = Pelicula_Adapter(list)
-            binding.rvClasificacion.adapter = adapter
-        }
-        binding.rvClasificacion.layoutManager = LinearLayoutManager(context)
 
         binding.btnAdd.setOnClickListener{
             navController.navigate(R.id.pelicula_toAddP)

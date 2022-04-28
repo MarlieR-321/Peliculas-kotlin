@@ -1,5 +1,6 @@
-package uca.ni.edu.peliculas.fragment.add
+package uca.ni.edu.peliculas.fragment.update_delete
 
+import android.app.AlertDialog
 import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,39 +9,38 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Toast
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
-import kotlinx.android.synthetic.main.fragment_add_pelicula.*
+import androidx.navigation.fragment.navArgs
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import uca.ni.edu.peliculas.R
-import uca.ni.edu.peliculas.adapters.Pelicula_Adapter
 import uca.ni.edu.peliculas.bd.dao.ClasificacionDao
 import uca.ni.edu.peliculas.bd.dao.NacionalidadDao
 import uca.ni.edu.peliculas.bd.dao.PeliculaDao
-import uca.ni.edu.peliculas.databinding.FragmentAddPeliculaBinding
 import uca.ni.edu.peliculas.bd.dao.dbPeliculas
 import uca.ni.edu.peliculas.bd.entidades.tables.Clasificacion
 import uca.ni.edu.peliculas.bd.entidades.tables.Nacionalidad
 import uca.ni.edu.peliculas.bd.entidades.tables.Pelicula
-import uca.ni.edu.peliculas.bd.viewmodels.IdiomaViewModels
 import uca.ni.edu.peliculas.bd.viewmodels.PeliculaViewModels
+import uca.ni.edu.peliculas.databinding.FragmentAddPeliculaBinding
+import uca.ni.edu.peliculas.databinding.FragmentUpDelPeliculaBinding
 
 
-class AddPeliculaFragment : Fragment() {
+class UpDelPeliculaFragment : Fragment() {
+    // TODO: Rename and change types of parameters
 
-    lateinit var binding:FragmentAddPeliculaBinding
+    lateinit var binding: FragmentUpDelPeliculaBinding
+    private val args by navArgs<UpDelPeliculaFragmentArgs>()
     private lateinit var viewModel : PeliculaViewModels
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
-    ): View {
-        binding = FragmentAddPeliculaBinding.inflate(layoutInflater,container,false)
+    ): View? {
+        // Inflate the layout for this fragment
+        binding = FragmentUpDelPeliculaBinding.inflate(layoutInflater,container,false)
         viewModel = ViewModelProvider(this)[PeliculaViewModels::class.java]
 
         initSpinner(requireContext())
@@ -50,9 +50,52 @@ class AddPeliculaFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.btnNew.setOnClickListener {
-            guardar()
+        with(binding){
+            etId.setText(args.currentPelicula.idPelicula.toString())
+            etDuracion.setText(args.currentPelicula.duracion)
+            etSinopsis.setText(args.currentPelicula.sinopsis)
+            etTipoMetraje.setText(args.currentPelicula.tipoMetraje)
+            etTitulo.setText(args.currentPelicula.titulo)
+
+            btnUpdate.setOnClickListener {
+                guardar()
+            }
+
+            btnDelete.setOnClickListener {
+                eliminar()
+            }
         }
+
+    }
+
+
+    private fun eliminar() {
+        val vw = args.currentPelicula
+        val peli = Pelicula(vw.idPelicula,vw.id_Clasificacion,vw.duracion,vw.id_Nacionalidad,vw.sinopsis,vw.tipoMetraje,vw.titulo)
+
+        val alerta = AlertDialog.Builder(requireContext())
+        alerta.setPositiveButton("Si") { _, _ ->
+            viewModel.eliminarUsuario(peli)
+            Toast.makeText(
+                requireContext(),
+                "Registro eliminado satisfactoriamente...",
+                Toast.LENGTH_LONG
+            ).show()
+            findNavController().navigate(R.id.nav_pelicula)
+        }
+        alerta.setNegativeButton("No") { _, _ ->
+            Toast.makeText(
+                requireContext(),
+                "Operación cancelada...",
+                Toast.LENGTH_LONG
+            ).show()
+        }
+
+        alerta.setTitle("Eliminando los registro")
+        alerta.setMessage("¿Esta seguro de eliminar el registro permanentemente?")
+        alerta.create().show()
+
+5
     }
 
     private fun guardar() {
@@ -62,6 +105,7 @@ class AddPeliculaFragment : Fragment() {
         val sinopsis = binding.etSinopsis.text.toString()
         val duracion = binding.etDuracion.text.toString()
         val tipoMetraje = binding.etTipoMetraje.text.toString()
+        val id = binding.etId.text.toString().toInt()
 
         if(clasificacion != "Seleccione..")
         {
@@ -76,8 +120,8 @@ class AddPeliculaFragment : Fragment() {
                         val idN = daoP.getByStringNacionalidad(nacionalidad)
                         val idC = daoP.getByStringClasificacion(clasificacion)
 
-                        val peli = Pelicula(0,idC,duracion,idN,sinopsis,tipoMetraje,titulo)
-                        viewModel.agregarUsuario(peli)
+                        val peli = Pelicula(id,idC,duracion,idN,sinopsis,tipoMetraje,titulo)
+                        viewModel.actualizarUsuario(peli)
 
                         Toast.makeText(requireContext(), "Registro guardado", Toast.LENGTH_LONG).show()
                         findNavController().navigate(R.id.nav_pelicula)
@@ -101,7 +145,7 @@ class AddPeliculaFragment : Fragment() {
 
     }
 
-    private fun initSpinner(context:Context){
+    private fun initSpinner(context: Context){
         val db: dbPeliculas = dbPeliculas.getInstace(context)
         val daoC: ClasificacionDao = db.clasificacionDAO()
         val daoN: NacionalidadDao = db.nacionalidadDao()
@@ -129,6 +173,5 @@ class AddPeliculaFragment : Fragment() {
         binding.spClasificacion.adapter = adapterC
 
     }
-
 
 }

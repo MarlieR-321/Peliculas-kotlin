@@ -6,19 +6,19 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_clasif"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/tree_list"
             android:title="Clasificacion" />
         <item
             android:id="@+id/nav_genero"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/teatro"
             android:title="Genero" />
         <item
             android:id="@+id/nav_idioma"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/idioma"
             android:title="Idioma" />
         <item
             android:id="@+id/nav_nacionalidad"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/world"
             android:title="Nacionalidad" />
         <item
             android:id="@+id/nav_pelicula"
